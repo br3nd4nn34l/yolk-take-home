@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Ticket</title>
+</head>
+<body>
+<form action="/search">
+    <input type="submit" value="<-- Filter Tickets"/>
+</form>
+<h1>Edit Ticket:</h1>
+<form action="/tickets/{{ticket.id}}" method="post">
+    <p>Title: {{ticket.title}}</p>
+    <p>Creator: {{ticket.creator}}</p>
+    <p>Creation Time: {{ticket.create_time | string() }}</p>
+    <p>Close Time: {{ticket.close_time | string() }}</p>
+    <div>
+        <label>Assignee</label>
+        <input type="email" name="assignee" value="{{ticket.assignee}}"/>
+    </div>
+    <div>
+        <h2>Text</h2>
+        <p>{{ticket.text}}</p>
+    </div>
+    <fieldset>
+        <legend>Change Status: (Current - {{ticket.status}})</legend>
+        <input type="radio" name="status" id="backlog" value="backlog"/><label for="backlog">Backlog</label><br/>
+        <input type="radio" name="status" id="progress" value="progress"/><label for="progress">In Progress</label><br/>
+        <input type="radio" name="status" id="review" value="review"/><label for="review">Review</label><br/>
+        <input type="radio" name="status" id="closed" value="closed"/><label for="closed">Closed</label><br/>
+    </fieldset>
+    <div>
+        <h2>Comments</h2>
+        <div>
+            {%- for comment in ticket.comments %}
+            <p>{{comment.commenter}}: {{comment.text}}</p>
+            {%- endfor %}
+        </div>
+        <div>
+            <p>New Comment</p>
+            <div>
+                <label>Commenter</label>
+                <input type="email" name="commenter"/>
+            </div>
+            <p>Comment</p>
+            <textarea name="comment"></textarea>
+        </div>
+    </div>
+    <input type="submit" value="Save"/>
+</form>
+</body>
+</html>

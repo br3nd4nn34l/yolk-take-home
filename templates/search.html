@@ -1,0 +1,43 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Filter Tickets</title>
+</head>
+<body>
+<form action="/tickets" method="get">
+    <h1>Filter Tickets:</h1>
+    <div>
+        <label>Minimum Creation Time</label>
+        <input type="date" name="create_lb"/>
+    </div>
+    <div>
+        <label>Maximum Creation Time</label>
+        <input type="date" name="create_ub"/>
+    </div>
+    <div>
+        <label>Minimum Close Time</label>
+        <input type="date" name="close_lb"/>
+    </div>
+    <div>
+        <label>Maximum Close Time</label>
+        <input type="date" name="close_ub"/>
+    </div>
+    <fieldset>
+        <legend>Status</legend>
+        <input type="checkbox" name="status" id="backlog" value="backlog"/><label for="backlog">Backlog</label><br/>
+        <input type="checkbox" name="status" id="progress" value="progress"/><label for="progress">In
+        Progress</label><br/>
+        <input type="checkbox" name="status" id="review" value="review"/><label for="review">Review</label><br/>
+        <input type="checkbox" name="status" id="closed" value="closed"/><label for="closed">Closed</label><br/>
+    </fieldset>
+    <input type="submit" value="Search"/>
+</form>
+<form action="/create">
+    <input type="submit" value="Create New Ticket">
+</form>
+
+</body>
+</html>

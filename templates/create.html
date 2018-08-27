@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Ticket</title>
+</head>
+<body>
+<form action="/search">
+    <input type="submit" value="<-- Filter Tickets"/>
+</form>
+<h1>Create Ticket:</h1>
+<form action="/tickets" method="post">
+    <div>
+        <label>Creator</label>
+        <input type="email" name="creator"/>
+    </div>
+    <div>
+        <label>Assignee</label>
+        <input type="email" name="assignee"/>
+    </div>
+    <div>
+        <label>Title</label>
+        <input type="text" name="title"/>
+    </div>
+    <div>
+        <label>Text</label><br/>
+        <textarea name="text"></textarea>
+    </div>
+    <fieldset>
+        <legend>Status</legend>
+        <input type="radio" name="status" id="backlog" value="backlog"/><label for="backlog">Backlog</label><br/>
+        <input type="radio" name="status" id="progress" value="progress"/><label for="progress">In Progress</label><br/>
+        <input type="radio" name="status" id="review" value="review"/><label for="review">Review</label><br/>
+        <input type="radio" name="status" id="closed" value="closed"/><label for="closed">Closed</label><br/>
+    </fieldset>
+    <input type="submit" value="Create"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,9 @@
+version: '3'
+services:
+  test:
+    build: .
+    command: pytest -sv test.py
+    volumes:
+      - .:/yolk-take-home
+    links:
+      - db
